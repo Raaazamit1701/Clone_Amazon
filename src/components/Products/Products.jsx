@@ -138,7 +138,7 @@ const Product = ({ filteredProductsData = [] }) => {
             <div>
               <p className="text-sm ">{item.description.substring(0, 100)}</p>
               <div className="text-yellow-500 flex">
-                {/* <RatingStars rating={item.rating.rate} /> */}
+                <RatingStars rating={item.rating} />
               </div>
             </div>
             <button
