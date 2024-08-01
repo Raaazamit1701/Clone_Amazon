@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .headerHover {
+    @apply flex  h-full py-2 px-2 items-center rounded-sm border border-transparent hover:border-white cursor-pointer duration-100;
+  }
+
+  .sideBarItems {
+    @apply text-sm leading-4 font-medium flex items-center justify-between  pt-3 pr-5 pb-3 pl-9 text-lightGray hover:bg-[#eee] hover:text-black cursor-pointer;
+  }
+  .footerLink {
+    @apply text-sm font-normal tracking-wide hover:text-gray-100 cursor-pointer hover:underline duration-150;
+  }
+  .footerItemHover {
+    @apply flex gap-1 items-center justify-center border border-gray-500
+           hover:border-amazon_yellow cursor-pointer duration-200 px-2 py-1;
+  }
+  .inputBox {
+    @apply w-full border border-zinc-400 rounded px-2 py-1 text-sm
+            outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100
+            placeholder:text-[13px] shadow-inputBoxShadow font-normal;
+  }
+  .amazonButton {
+    @apply w-full border border-[#fcd200] bg-amazon_button hover:bg-amazon_button_hover rounded-lg py-[6px]
+           text-[13px] font-medium focus:border-[#008296]  duration-150 focus:shadow-activeAmazonButtonShadow 
+           shadow-amazonButtonShadow;
+  }
+  .defaultLink {
+    @apply text-blue-600  hover:text-orange-700 hover:underline cursor-pointer;
+  }
+  .errorSign {
+    @apply text-base font-bold italic text-error;
+  }
+  .cartButtonLinks {
+    @apply text-link text-xs font-normal tracking-wide cursor-pointer hover:underline duration-150 border-lightText;
+  }
+  .navigateButtonLinks {
+    @apply text-link text-xs font-normal tracking-wide cursor-pointer hover:underline duration-150 border-lightText hover:text-orange-600 outline-none;
+  }
+  .selectItem {
+    @apply font-normal bg-selectBackground  shadow-itemSelect border-selectBorder py-1 px-2 border rounded-lg hover:bg-hoverItemSelect outline-none text-slate-800 cursor-pointer;
+  }
+  .disabledAmazonButton {
+    @apply bg-[#fffae0] border border-[#ffed94] text-[#6f7373] hover:bg-[#fffae0];
+  }
+}
