@@ -61,20 +61,20 @@ const Product = ({ filteredProductsData = [] }) => {
     }, 1000);
   };
 
-  if (!productsData.length)
-    return (
-      <Oval
-        height={60}
-        width={60}
-        color="#febd69"
-        visible={true}
-        wrapperClass="justify-center"
-        ariaLabel="oval-loading"
-        secondaryColor="#febd69"
-        strokeWidth={6}
-        strokeWidthSecondary={6}
-      />
-    );
+  // if (!productsData.length)
+  //   return (
+  //     <Oval
+  //       height={60}
+  //       width={60}
+  //       color="#febd69"
+  //       visible={true}
+  //       wrapperClass="justify-center"
+  //       ariaLabel="oval-loading"
+  //       secondaryColor="#febd69"
+  //       strokeWidth={6}
+  //       strokeWidthSecondary={6}
+  //     />
+  //   );
 
   return (
     <section
