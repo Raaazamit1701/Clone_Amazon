@@ -17,12 +17,12 @@ const footerTopItemsData = [
   {
     section: "Connect with Us",
     items: [
-      { title: "Linkedin", link: "https://www.linkedin.com/in/keshavchamria/" },
+      { title: "Linkedin", link: "https://www.linkedin.com/in/amit-raj-0a495b220/" },
       {
         title: "Instagram",
-        link: "https://www.instagram.com/agarwal_keshav24/",
+        link: "https://www.instagram.com/",
       },
-      { title: "X", link: "https://twitter.com/keshav59584579" },
+      { title: "X", link: "https://twitter.com/" },
     ],
   },
   {
