@@ -93,7 +93,7 @@ const Cart = () => {
       name="shopping-cart"
       className="flex flex-col justify-between lg:flex-row  gap-5 bg-[#eaeded] py-8 px-6"
     >
-      <div className="flex-1 bg-white py-6 px-4">
+      <div className="flex-1 bg-white py-6 px-4 border">
         <h1 className="text-3xl font-medium text-amazon_blue border-b pb-4">
           {cartProductsDetails.length
             ? "Shopping Cart"
@@ -103,8 +103,10 @@ const Cart = () => {
           {!cartProductsDetails.length ? (
             <img className="mx-auto" src={emptyCart} alt="empty-cart-image" />
           ) : (
-            <ul>
+            <ul className=" h-[50vh] overflow-y-auto">
               {cartProductsDetails.map((item, index) => {
+                console.log(item);
+                
                 return (
                   <li
                     key={item.product.id}
@@ -113,7 +115,7 @@ const Cart = () => {
                     <div className="mx-auto md:mx-0  ">
                       <img
                         className="min-w-[150px] max-w-[150px] max-h-[200px]"
-                        src={item.product.image}
+                        src={item.product.images[0]}
                         alt="item.product-image"
                       />
                     </div>
