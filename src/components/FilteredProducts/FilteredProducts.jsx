@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 
 const productCategories = [
-  "men's clothing",
+  "beauty",
   "women's clothing",
   "jewelery",
   "electronics",
@@ -14,6 +14,7 @@ const productCategories = [
 
 const FilteredProducts = () => {
   const { listOfProducts } = useContext(ProductDataContext);
+  console.log("list_data", listOfProducts);
 
   const categoryInputRef = useRef([]);
   const [isLoading, setLoading] = useState(true);
@@ -27,6 +28,8 @@ const FilteredProducts = () => {
     const selectedProductCategory = filteredElement.map(
       (element) => element?.id
     );
+
+    console.log("params checking", filteredElement, selectedProductCategory);
     if (selectedProductCategory.length === 0 && !searchParams.get("category"))
       return;
     updateSearchParams(
@@ -114,7 +117,11 @@ const FilteredProducts = () => {
   };
 
   const getFilteredSortedData = () => {
-    const filteredData = applyFilters([...listOfProducts]);
+    if (!listOfProducts || !Array.isArray(listOfProducts.products)) {
+      return [];
+    }
+
+    const filteredData = applyFilters([...listOfProducts.products]);
     return applySorting(filteredData);
   };
 
