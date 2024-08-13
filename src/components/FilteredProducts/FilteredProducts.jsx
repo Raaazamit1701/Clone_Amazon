@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import Products from "../Products";
+import FilProduct from "../Products/FilProduct";
 import RatingStars from "../Products/RatingStars";
 import ProductDataContext from "../../context/ProductDataContextProvider";
 import { useSearchParams } from "react-router-dom";
@@ -7,9 +7,16 @@ import { Oval } from "react-loader-spinner";
 
 const productCategories = [
   "beauty",
-  "women's clothing",
-  "jewelery",
-  "electronics",
+  "mens-shirts",
+  "fragrances",
+  "furniture",
+  "groceries",
+  "home-decoration",
+  "kitchen-accessories",
+  "laptops",
+  "mens-shoes",
+  "mens-watches",
+  "mobile-accessories",
 ];
 
 const FilteredProducts = () => {
@@ -160,7 +167,7 @@ const FilteredProducts = () => {
         <div className="filters">
           <div className="w-max mb-4">
             <h3 className="font-medium">Category</h3>
-            <ul>
+            <ul className="border  h-[30vh] overflow-y-auto">
               {productCategories.map((category, index) => {
                 return (
                   <li key={category} className="flex gap-2">
@@ -176,6 +183,7 @@ const FilteredProducts = () => {
                 );
               })}
             </ul>
+
             <button
               onClick={handleApplyCategoryFilterClick}
               className="amazonButton text-xs py-1"
@@ -262,7 +270,7 @@ const FilteredProducts = () => {
               strokeWidthSecondary={6}
             />
           ) : filteredProductsData.length ? (
-            <Products filteredProductsData={filteredProductsData} />
+            <FilProduct filteredProductsData={filteredProductsData} />
           ) : (
             <p className="text-lg font-medium text-defaultParagraph">
               Product not available

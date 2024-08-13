@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import RatingStars from "./RatingStars";
 import ProductDataContext from "../../context/ProductDataContextProvider";
 
-const Product = ({ filteredProductsData = [] }) => {
+const FilProduct = ({ filteredProductsData = [] }) => {
   const { listOfProducts } = useContext(ProductDataContext);
   const dispatch = useDispatch();
   const cartDetails = useSelector((state) => state.cartDetails);
@@ -90,7 +90,7 @@ const Product = ({ filteredProductsData = [] }) => {
               </h2>
               <p className="text-gray-600 text-sm">
                 {item.description.length > 40
-                  ? `${item.description.substring(0, 65)}...`
+                  ? `${item.description.substring(0,42)}...`
                   : item.description}
               </p>
               <div className="flex items-center justify-between mt-auto">
@@ -115,4 +115,4 @@ const Product = ({ filteredProductsData = [] }) => {
   );
 };
 
-export default Product;
+export default FilProduct;
