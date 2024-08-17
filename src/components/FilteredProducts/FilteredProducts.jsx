@@ -73,12 +73,18 @@ const FilteredProducts = () => {
 
   const applyFilters = (products) => {
     const productCategoryFilter = searchParams.get("category")?.split(",");
-
+    console.log("category",productCategoryFilter);
+    
     if (productCategoryFilter?.length > 0) {
       products = products.filter((product) =>
         productCategoryFilter?.includes(product.category)
       );
     }
+
+    const productNameFilter = searchParams.get("title")?.split(",");
+
+    console.log("name",productNameFilter);
+    
 
     const ratingFilter = searchParams.get("rating");
 

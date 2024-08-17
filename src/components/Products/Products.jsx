@@ -32,6 +32,8 @@ const Product = ({ filteredProductsData = [] }) => {
       dispatch(updateQuantity({ id, quantity: 1 }));
       return;
     }
+    console.log(productsData);
+    
 
     const selectedProduct = productsData.find((product) => product.id === id);
     dispatch(addProduct({ product: selectedProduct }));

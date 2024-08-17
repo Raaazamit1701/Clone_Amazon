@@ -39,7 +39,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<CustomLayout />}>
             <Route index element={<Home />} />
-
             <Route
               path="youraccount"
               element={
