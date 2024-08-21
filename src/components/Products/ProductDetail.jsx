@@ -41,7 +41,8 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 shadow-lg rounded-lg flex flex-col md:flex-row justify-between border border-gray-200 m-4 h-auto overflow-hidden">
+    <div className="container mx-auto p-6 bg-gray-50">
+      <div className="p-6 bg-gray-100 shadow-lg rounded-lg flex flex-col md:flex-row justify-between border border-gray-200 m-4 h-auto overflow-hidden">
       {/* Column for all images */}
       <div className="w-full md:w-[10%] flex items-center border border-gray-300 rounded-lg bg-white p-2">
         <div className="flex flex-col">
@@ -76,9 +77,17 @@ const ProductDetail = () => {
         <div className="text-yellow-500 mb-2">
           <RatingStars rating={product.rating} />
         </div>
-        <p className="text-xl font-semibold text-green-600 mb-4">
-          Price: <span className="line-through text-gray-500">${product.originalPrice}</span> ${product.price}
-        </p>
+
+        <div className="flex items-center mb-4">
+          <p className="text-xl font-semibold text-green-600 mr-4">
+            Price: ${product.price}
+          </p>
+          {product.discountPercentage > 0 && (
+            <span className="bg-red-500 text-white font-semibold text-xs rounded-full px-2 py-1">
+              {product.discountPercentage}% OFF
+            </span>
+          )}
+        </div>
 
         {/* Attractive Description Section */}
         <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
@@ -118,38 +127,42 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {/* Customer Reviews Section */}
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold mb-2 text-gray-800">Customer Reviews</h3>
-          {product.reviews.length > 0 ? (
-            product.reviews.map((review, index) => (
-              <div key={index} className="border-b py-4">
-                <div
-                  className="cursor-pointer text-gray-900 hover:text-blue-500 transition-colors flex items-center"
-                  onClick={() => toggleReview(index)}
-                >
-                  <span className="text-xl font-bold">{review.reviewerName}</span>
-                  <div className="ml-2 text-yellow-500">
-                    <RatingStars rating={review.rating} />
-                  </div>
+      </div>
+    </div>
+     {/* Customer Reviews Section */}
+     <div className="mt-6">
+        <h3 className="text-lg font-semibold mb-2 text-gray-800">Customer Reviews</h3>
+        {product.reviews.length > 0 ? (
+          product.reviews.map((review, index) => (
+            <div key={index} className="border-b py-4 mb-4">
+              <div
+                className="cursor-pointer text-gray-900 hover:text-blue-500 transition-colors flex items-center"
+                onClick={() => toggleReview(index)}
+              >
+                <span className="text-xl font-bold">{review.reviewerName}</span>
+                <div className="ml-2 text-yellow-500">
+                  <RatingStars rating={review.rating} />
                 </div>
-                {expandedReviewIndex === index && (
-                  <div className="mt-2 p-4 bg-gray-50 rounded-md shadow-md">
-                    <p className="text-gray-900">{review.comment}</p>
-                    <p className="text-gray-500 text-sm">
-                      Reviewed on {new Date(review.date).toLocaleDateString()}
-                    </p>
-                  </div>
-                )}
               </div>
-            ))
-          ) : (
-            <p className="text-gray-600">No reviews yet.</p>
-          )}
-        </div>
+              {expandedReviewIndex === index && (
+                <div className="mt-2 p-4 bg-gray-50 rounded-md shadow-md">
+                  <p className="text-gray-900">{review.comment}</p>
+                  <p className="text-gray-500 text-sm">
+                    Reviewed on {new Date(review.date).toLocaleDateString()}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-600">No reviews yet.</p>
+        )}
       </div>
     </div>
   );
 };
 
 export default ProductDetail;
+
+
+
