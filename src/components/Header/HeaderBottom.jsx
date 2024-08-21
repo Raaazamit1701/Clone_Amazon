@@ -4,13 +4,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import DeliveryAddress from "./DeliveryAddress";
 import { Link } from "react-router-dom";
 const productCategories = [
-  "Men's Clothing",
-  "Women's Clothing",
-  "Jewelery",
+  "mens-shirts",
+  "home-decoration",
+  "beauty",
   "Electronics",
-  "Skin Care & Beauty",
-  "Mobiles",
-  "Appliances",
+  "mobile-accessories",
+  "laptops",
+  "home-decoration",
 ];
 
 const HeaderBottom = ({ openSideBar }) => {
