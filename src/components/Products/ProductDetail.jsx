@@ -79,7 +79,7 @@ const ProductDetail = () => {
         </div>
 
         <div className="flex items-center mb-4">
-          <p className="text-xl font-semibold text-green-600 mr-4">
+          <p className="text-xl font-semibold text-black mr-4">
             Price: ${product.price}
           </p>
           {product.discountPercentage > 0 && (
@@ -89,43 +89,51 @@ const ProductDetail = () => {
           )}
         </div>
 
-        {/* Attractive Description Section */}
-        <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">Product Description</h3>
-          <p className="text-gray-700 mb-4">{product.description}</p>
-        </div>
+       
 
-        {/* Product Details */}
         <div className="mb-4">
-          <h3 className="text-lg font-semibold mb-2 text-gray-800">Product Details</h3>
-          <ul className="list-disc pl-5 text-gray-800">
-            <li>Brand: <span className="font-medium">{product.brand}</span></li>
-            <li>SKU: <span className="font-medium">{product.sku}</span></li>
-            <li>Weight: <span className="font-medium">{product.weight} g</span></li>
-            <li>Dimensions: <span className="font-medium">{product.dimensions.width} x {product.dimensions.height} x {product.dimensions.depth} cm</span></li>
-            <li>Warranty: <span className="font-medium">{product.warrantyInformation}</span></li>
-            <li>Shipping: <span className="font-medium">{product.shippingInformation}</span></li>
-            <li>Return Policy: <span className="font-medium">{product.returnPolicy}</span></li>
-            <li>Minimum Order Quantity: <span className="font-medium">{product.minimumOrderQuantity}</span></li>
-          </ul>
-        </div>
-
-        {/* Pricing and Availability */}
-        <div className="mb-4">
-          <h2 className="text-lg font-bold">${product.price}</h2>
           <div className="grid gap-1">
-            <p className="text-xs font-medium text-[#007600]">In stock</p>
-            <p className="text-xs font-medium text-lightGray">
+            <p className="text-xs font-medium text-blue-300">FREE delivery</p>
+            {/* <p className="text-xs font-medium text-lightGray">
               Sold by <span className="text-xs text-link">InfiniaRetail</span>
-            </p>
+            </p> */}
             <p className="text-xs font-medium text-lightGray">
               Gift options not available. <span className="cartButtonLinks font-medium border-0 p-0">Learn more</span>
             </p>
             <p className="text-xs font-bold">
               Style Name: <span className="font-normal text-gray">{product.category}</span>
             </p>
+            <p className="text-lg font-medium text-green-500">
+            Available to <span className="text-lg text-green">{product.shippingInformation}</span>
+            </p>
           </div>
         </div>
+         {/* Add to Cart Button */}
+         <button
+            onClick={() => {}}
+            className="mt-4 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-500 transition-colors"
+          >
+            Add to Cart
+          </button>
+
+           {/* Product Details */}
+           <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
+            <h3 className="text-lg font-semibold text-gray-800 m-2">Product Details</h3>
+            <div className="text-gray-700 mb-4">
+              <p className="font-medium">Brand: <span className=" font-normal" >{product.brand}</span ></p>
+              <p className="font-medium">Stock: <span className=" font-normal" >{product.stock}</span ></p>
+              <p className="font-medium">Warranty: <span className=" font-normal" >{product.warrantyInformation}</span ></p>
+              <p className="font-medium">Minimum Order Quantity: <span className=" font-normal" >{product.minimumOrderQuantity}</span ></p>
+              <p className="font-medium">Return Policy: <span className=" font-normal" >{product.returnPolicy}</span></p>
+            </div>
+          </div>
+
+         {/* Attractive Description Section */}
+         <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">Product Description</h3>
+          <p className="text-gray-700 mb-4">{product.description}</p>
+        </div>
+       
 
       </div>
     </div>
