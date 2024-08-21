@@ -6,6 +6,7 @@ import { addProduct, updateQuantity } from "../../redux/cart/cartAction";
 import { useDispatch, useSelector } from "react-redux";
 import RatingStars from "./RatingStars";
 import ProductDataContext from "../../context/ProductDataContextProvider";
+import { Link } from "react-router-dom";
 
 const Product = ({ filteredProductsData = [] }) => {
   const { listOfProducts } = useContext(ProductDataContext);
@@ -14,6 +15,8 @@ const Product = ({ filteredProductsData = [] }) => {
 
   const [productsData, setProductsData] = useState([]);
 
+//   console.log("detail",cartDetails);
+// console.log("listofProducts",listOfProducts);
   useEffect(() => {
     setProductsData(
       filteredProductsData.length > 0 ? filteredProductsData : listOfProducts.products
@@ -65,6 +68,7 @@ const Product = ({ filteredProductsData = [] }) => {
             </span>
             
             <div className="relative w-full h-64 flex items-center justify-center bg-gray-50">
+              
               <img
                 className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
                 src={item.images[0]}
@@ -73,7 +77,9 @@ const Product = ({ filteredProductsData = [] }) => {
               <ul
                 className="absolute inset-x-0 bottom-0 bg-white bg-opacity-95 p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex justify-around text-sm text-gray-700 opacity-0 group-hover:opacity-100"
               >
-                <li className="flex items-center gap-2 cursor-pointer hover:text-gray-900">
+                <li className="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                
+                >
                   <ApiIcon /> 
                 </li>
                 <li className="flex items-center gap-2 cursor-pointer hover:text-gray-900">
@@ -85,11 +91,13 @@ const Product = ({ filteredProductsData = [] }) => {
               </ul>
             </div>
             <div className="p-4 flex flex-col gap-2">
+            <Link to={`/product_details/${item.id}`}>
               <h2 className="font-semibold text-lg text-gray-800 group-hover:text-yellow-600 transition-colors duration-300">
                 {item.title.length > 20
                   ? `${item.title.substring(0, 17)}...`
                   : item.title}
               </h2>
+              </Link>
               <p className="text-gray-600 text-sm">
                 {item.description.length > 40
                   ? `${item.description.substring(0, 65)}...`

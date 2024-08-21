@@ -13,6 +13,7 @@ import Account from "./YourAccount/Account";
 import Addresses from "./YourAccount/Addresses";
 import AddAddress from "./YourAccount/Addresses/AddAddress";
 import Checkout from "./Checkout";
+import ProductDetail from "./Products/ProductDetail";
 
 import FilteredProducts from "./FilteredProducts";
 
@@ -56,6 +57,7 @@ const App = () => {
             </Route>
 
             <Route path="filtered_products" element={<FilteredProducts />} />
+            <Route path="/product_details/:id" element={<ProductDetail />} />
 
             <Route path="cart" element={<Cart />} />
           </Route>
