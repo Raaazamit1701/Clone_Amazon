@@ -6,6 +6,7 @@ import { addProduct, updateQuantity } from "../../redux/cart/cartAction";
 import { useDispatch, useSelector } from "react-redux";
 import RatingStars from "./RatingStars";
 import ProductDataContext from "../../context/ProductDataContextProvider";
+import { Link } from "react-router-dom";
 
 const FilProduct = ({ filteredProductsData = [] }) => {
   const { listOfProducts } = useContext(ProductDataContext);
@@ -20,30 +21,72 @@ const FilProduct = ({ filteredProductsData = [] }) => {
     );
   }, [filteredProductsData, listOfProducts]);
 
+  // const handleAddToCartClick = (e) => {
+  //   e.stopPropagation();
+  //   const id = Number(e.target.id);
+
+  //   const isExistsInCart = cartDetails.products.some(
+  //     (item) => item.product.id === id
+  //   );
+
+  //   if (isExistsInCart) {
+  //     dispatch(updateQuantity({ id, quantity: 1 }));
+  //     return;
+  //   }
+
+  //   const selectedProduct = productsData.find((product) => product.id === id);
+  //   dispatch(addProduct({ product: selectedProduct }));
+
+  //   e.target.disabled = true;
+  //   e.target.classList.add("disabledButton");
+  //   e.target.textContent = "Added to Cart";
+  //   setTimeout(() => {
+  //     e.target.disabled = false;
+  //     e.target.classList.remove("disabledButton");
+  //     e.target.textContent = "Add to Cart";
+  //   }, 1000);
+  // };
   const handleAddToCartClick = (e) => {
     e.stopPropagation();
     const id = Number(e.target.id);
-
+    
+    // Check if the product is already in the cart
     const isExistsInCart = cartDetails.products.some(
       (item) => item.product.id === id
     );
-
+    
     if (isExistsInCart) {
-      dispatch(updateQuantity({ id, quantity: 1 }));
-      return;
+      // If the product is already in the cart, show a message or handle it as needed
+      e.target.disabled = true;
+      e.target.classList.add("disabledButton");
+      e.target.textContent = "Already in Cart";
+      setTimeout(() => {
+        e.target.disabled = false;
+        e.target.classList.remove("disabledButton");
+        e.target.textContent = "Add to Cart";
+      }, 1000);
+      return; // Prevent further execution if the product is already in the cart
     }
-
+  
+    // Find the selected product in productsData
     const selectedProduct = productsData.find((product) => product.id === id);
-    dispatch(addProduct({ product: selectedProduct }));
-
-    e.target.disabled = true;
-    e.target.classList.add("disabledButton");
-    e.target.textContent = "Added to Cart";
-    setTimeout(() => {
-      e.target.disabled = false;
-      e.target.classList.remove("disabledButton");
-      e.target.textContent = "Add to Cart";
-    }, 1000);
+  
+    if (selectedProduct) {
+      // If the product is not in the cart, add it
+      dispatch(addProduct({ product: selectedProduct }));
+    
+      // Disable the button and show "Added to Cart" after adding
+      e.target.disabled = true;
+      e.target.classList.add("disabledButton");
+      e.target.textContent = "Added to Cart";
+      setTimeout(() => {
+        e.target.disabled = false;
+        e.target.classList.remove("disabledButton");
+        e.target.textContent = "Add to Cart";
+      }, 1000);
+    } else {
+      console.error("Product not found in productsData");
+    }
   };
 
   return (
@@ -83,11 +126,13 @@ const FilProduct = ({ filteredProductsData = [] }) => {
               </ul>
             </div>
             <div className="p-4 flex flex-col gap-2">
+            <Link to={`/product_details/${item.id}`}>
               <h2 className="font-semibold text-lg text-gray-800 group-hover:text-yellow-600 transition-colors duration-300">
                 {item.title.length > 20
                   ? `${item.title.substring(0, 17)}...`
                   : item.title}
               </h2>
+              </Link>
               <p className="text-gray-600 text-sm">
                 {item.description.length > 40
                   ? `${item.description.substring(0,42)}...`

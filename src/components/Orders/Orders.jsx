@@ -171,7 +171,7 @@ const Orders = () => {
                             <div>
                               <img
                                 className=" min-w-[100px] max-w-[100px] max-h-[120px]"
-                                src={item.product.image}
+                                src={item.product.images}
                                 alt="product-image"
                               />
                             </div>

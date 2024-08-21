@@ -184,24 +184,24 @@ const ProductDetail = () => {
             Add to Cart
           </button>
 
-          <div className="bg-gray-50 p-4 rounded-md shadow-md mt-6">
+          <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               Product Details
             </h3>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-600 mb-2">
               <strong>Brand:</strong> {product.brand}
             </p>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-600 mb-2">
               <strong>Stock:</strong> {product.stock}
             </p>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-600 mb-2">
               <strong>Warranty:</strong> {product.warrantyInformation}
             </p>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-600 mb-2">
               <strong>Minimum Order Quantity:</strong>{" "}
               {product.minimumOrderQuantity}
             </p>
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-600 mb-2">
               <strong>Return Policy:</strong> {product.returnPolicy}
             </p>
           </div>
