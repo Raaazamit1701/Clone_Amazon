@@ -103,28 +103,28 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-gray-50">
-      <div className="p-6 bg-gray-100 shadow-lg rounded-lg flex flex-col md:flex-row justify-between border border-gray-200 m-4 h-auto overflow-hidden">
-        <div className="w-full md:w-[10%] flex items-center border border-gray-300 rounded-lg bg-white p-2">
+    <div className="container w-full sm:w-[90%] m-auto mx-auto pt-6 sm:p-6 bg-gray-50">
+      <div className="p-6 bg-gray-100 sm:w-[100%] shadow-lg rounded-lg flex  flex-col md:flex-row justify-between   m-4 h-auto overflow-hidden">
+        <div className="w-full md:w-fit h-fit flex-col sm:flex items-center  rounded-lg bg-white p-2">
           <div className="flex flex-col">
             {product.images.map((image, index) => (
               <img
                 key={index}
                 src={image}
                 alt={`${product.title} ${index + 1}`}
-                className="h-20 w-full rounded-md shadow-md cursor-pointer mb-2 border border-gray-300 hover:opacity-80 transition-opacity"
+                className="h-20 w-full rounded-md object-contain shadow-md cursor-pointer mb-2  hover:opacity-80 transition-opacity"
                 onClick={() => handleImageClick(image)}
               />
             ))}
           </div>
         </div>
 
-        <div className="w-full md:w-[40%] border border-gray-300 rounded-lg bg-white p-4 flex flex-col items-center overflow-hidden">
+        <div className="w-full sm:w-[100%] md:w-[40%] sm:h-[70vh] rounded-lg flex bg-white flex-col items-center overflow-hidden">
           {selectedImage ? (
             <img
               src={selectedImage}
               alt={product.title}
-              className="max-w-[80vh] max-h-[80vh] rounded-md shadow-lg transition-transform transform hover:scale-105 mb-4"
+              className="max-w-[80vh] w-full sm:max-h-fit object-contain  rounded-md shadow-lg transition-transform transform hover:scale-105 mb-4"
             />
           ) : (
             <p className="text-gray-600 mb-4">
@@ -133,8 +133,8 @@ const ProductDetail = () => {
           )}
         </div>
 
-        <div className="w-full md:w-[48%] border border-gray-300 rounded-lg bg-white p-4 flex flex-col overflow-y-auto h-[90vh]">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+        <div className="w-full md:w-[48%]  rounded-lg max-h-[70vh] bg-white p-4 flex flex-col overflow-y-auto h-[90vh]">
+          <h2 className="sm:text-3xl text-xl font-bold text-gray-800 mb-2">
             {product.title}
           </h2>
           <div className="text-yellow-500 mb-2">
@@ -184,8 +184,8 @@ const ProductDetail = () => {
             Add to Cart
           </button>
 
-          <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+          <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4 text-sm">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">
               Product Details
             </h3>
             <p className="text-gray-600 mb-2">
@@ -207,7 +207,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="bg-gray-50 p-4 rounded-md shadow-md mb-4">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">
               Product Description
             </h3>
             <p className="text-gray-700 mb-4">{product.description}</p>
@@ -215,7 +215,7 @@ const ProductDetail = () => {
         </div>
       </div>
       <div className="mt-6">
-        <h3 className="text-lg font-semibold mb-4 text-gray-800 border-b-2 text-center border-gray-300 pb-2">
+        <h3 className="text-sm sm:text-lg font-semibold mb-4 text-gray-800 border-b-2 text-center border-gray-300 pb-2">
           Customer Reviews
         </h3>
         <div className="flex flex-wrap justify-around">
